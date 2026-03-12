@@ -26,6 +26,40 @@ function initApp() {
   initCTAButton();
   initContactForm();
   initScrollBehavior();
+  initCounter();
+}
+
+/**
+ * Counter functionality
+ */
+function initCounter() {
+  const counterDisplay = document.getElementById('counter-display');
+  const decrement200Btn = document.getElementById('decrement-200-btn');
+  const decrementBtn = document.getElementById('decrement-btn');
+  const incrementBtn = document.getElementById('increment-btn');
+
+  let count = 0;
+
+  function updateDisplay() {
+    counterDisplay.textContent = count;
+  }
+
+  decrement200Btn.addEventListener('click', () => {
+    count -= 200;
+    updateDisplay();
+  });
+
+  decrementBtn.addEventListener('click', () => {
+    count -= 1;
+    updateDisplay();
+  });
+
+  incrementBtn.addEventListener('click', () => {
+    count += 1;
+    updateDisplay();
+  });
+
+  updateDisplay(); // Initialize display
 }
 
 /**
