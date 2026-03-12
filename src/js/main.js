@@ -25,6 +25,7 @@ function initApp() {
   initNavigation();
   initCTAButton();
   initContactForm();
+  initCounter();
   initScrollBehavior();
 }
 
@@ -171,6 +172,33 @@ function showNotification(message, type = 'info') {
       style.remove();
     }, 300);
   }, 3000);
+}
+
+/**
+ * Counter functionality
+ */
+function initCounter() {
+  const counterDisplay = document.getElementById('counter-display');
+  const incrementBtn = document.getElementById('increment-btn');
+  const incrementFiveBtn = document.getElementById('increment-five-btn'); // New button
+
+  let count = 0;
+
+  function updateCounter() {
+    counterDisplay.textContent = count;
+  }
+
+  incrementBtn.addEventListener('click', () => {
+    count++;
+    updateCounter();
+  });
+
+  incrementFiveBtn.addEventListener('click', () => { // New button event listener
+    count += 5;
+    updateCounter();
+  });
+
+  updateCounter(); // Initialize display
 }
 
 /**
