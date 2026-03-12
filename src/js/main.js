@@ -26,6 +26,50 @@ function initApp() {
   initCTAButton();
   initContactForm();
   initScrollBehavior();
+  initCounter();
+}
+
+/**
+ * Initialize counter functionality
+ */
+function initCounter() {
+  const counterDisplay = document.getElementById('counter-display');
+  const incrementBtn = document.getElementById('increment-btn');
+  const decrementBtn = document.getElementById('decrement-btn');
+  const divideBy3Btn = document.getElementById('divide-by-3-btn');
+  const resetBtn = document.getElementById('reset-btn');
+
+  let count = 0;
+
+  function updateDisplay() {
+    counterDisplay.textContent = count;
+  }
+
+  incrementBtn.addEventListener('click', () => {
+    count++;
+    updateDisplay();
+  });
+
+  decrementBtn.addEventListener('click', () => {
+    count--;
+    updateDisplay();
+  });
+
+  divideBy3Btn.addEventListener('click', () => {
+    if (count !== 0) {
+      count = Math.floor(count / 3);
+      updateDisplay();
+    } else {
+      showNotification('Cannot divide zero by 3.', 'info');
+    }
+  });
+
+  resetBtn.addEventListener('click', () => {
+    count = 0;
+    updateDisplay();
+  });
+
+  updateDisplay(); // Initial display update
 }
 
 /**
