@@ -30,37 +30,7 @@ function initApp() {
   initCounter();
 }
 
-/**
- * Counter functionality
- */
-function initCounter() {
-  let count = 0;
-  const counterDisplay = document.getElementById('counter-display');
-  const decrementButton = document.getElementById('decrement-button');
-  const incrementButton = document.getElementById('increment-button');
-  const increment20Button = document.getElementById('increment-20-button');
 
-  function updateDisplay() {
-    counterDisplay.textContent = count;
-  }
-
-  decrementButton.addEventListener('click', () => {
-    count--;
-    updateDisplay();
-  });
-
-  incrementButton.addEventListener('click', () => {
-    count++;
-    updateDisplay();
-  });
-
-  increment20Button.addEventListener('click', () => {
-    count += 20;
-    updateDisplay();
-  });
-
-  updateDisplay(); // Initial display update
-}
 
 /**
  * Navigation functionality
