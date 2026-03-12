@@ -25,8 +25,43 @@ function initApp() {
   initNavigation();
   initCTAButton();
   initContactForm();
-  initCounter();
   initScrollBehavior();
+  initCounter();
+}
+
+/**
+ * Counter functionality
+ */
+let count = 0;
+
+function initCounter() {
+  const counterDisplay = document.getElementById('counter-display');
+  const incrementButton = document.getElementById('increment-button');
+  const decrementButton = document.getElementById('decrement-button');
+  const decrement400Button = document.getElementById('decrement-400-button');
+
+  function updateCounterDisplay() {
+    counterDisplay.textContent = count;
+  }
+
+  if (incrementButton && decrementButton && decrement400Button && counterDisplay) {
+    incrementButton.addEventListener('click', () => {
+      count++;
+      updateCounterDisplay();
+    });
+
+    decrementButton.addEventListener('click', () => {
+      count--;
+      updateCounterDisplay();
+    });
+
+    decrement400Button.addEventListener('click', () => {
+      count -= 400;
+      updateCounterDisplay();
+    });
+  }
+
+  updateCounterDisplay(); // Initial display update
 }
 
 /**
