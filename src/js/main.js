@@ -25,6 +25,7 @@ function initApp() {
   initNavigation();
   initCTAButton();
   initContactForm();
+  initCounter();
   initScrollBehavior();
 }
 
@@ -171,6 +172,39 @@ function showNotification(message, type = 'info') {
       style.remove();
     }, 300);
   }, 3000);
+}
+
+/**
+ * Counter functionality
+ */
+function initCounter() {
+  const counterDisplay = document.getElementById('counter-display');
+  const incrementBtn = document.getElementById('increment-btn');
+  const decrementBtn = document.getElementById('decrement-btn');
+  const decrement16000Btn = document.getElementById('decrement-16000-btn');
+
+  let count = 0;
+
+  function updateCounter() {
+    counterDisplay.textContent = count;
+  }
+
+  incrementBtn.addEventListener('click', () => {
+    count++;
+    updateCounter();
+  });
+
+  decrementBtn.addEventListener('click', () => {
+    count--;
+    updateCounter();
+  });
+
+  decrement16000Btn.addEventListener('click', () => {
+    count -= 16000;
+    updateCounter();
+  });
+
+  updateCounter();
 }
 
 /**
