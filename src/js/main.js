@@ -26,6 +26,8 @@ function initApp() {
   initCTAButton();
   initContactForm();
   initScrollBehavior();
+  initCounter();
+  initCounter();
 }
 
 /**
