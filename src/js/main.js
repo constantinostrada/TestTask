@@ -180,13 +180,19 @@ function showNotification(message, type = 'info') {
 function initCounter() {
   const counterDisplay = document.getElementById('counter-display');
   const incrementBtn = document.getElementById('increment-btn');
-  const incrementFiveBtn = document.getElementById('increment-five-btn'); // New button
+  const decrementBtn = document.getElementById('decrement-btn');
+  const incrementFiveBtn = document.getElementById('increment-five-btn');
 
   let count = 0;
 
   function updateCounter() {
     counterDisplay.textContent = count;
   }
+
+  decrementBtn.addEventListener('click', () => {
+    count--;
+    updateCounter();
+  });
 
   incrementBtn.addEventListener('click', () => {
     count++;
