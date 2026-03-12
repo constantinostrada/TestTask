@@ -182,6 +182,7 @@ function initCounter() {
   const incrementBtn = document.getElementById('increment-btn');
   const decrementBtn = document.getElementById('decrement-btn');
   const incrementFiveBtn = document.getElementById('increment-five-btn');
+  const incrementFiveBtn = document.getElementById('increment-five-btn');
 
   let count = 0;
 
@@ -196,6 +197,11 @@ function initCounter() {
 
   incrementBtn.addEventListener('click', () => {
     count++;
+    updateCounter();
+  });
+
+  incrementFiveBtn.addEventListener('click', () => { // New button event listener
+    count += 5;
     updateCounter();
   });
 
