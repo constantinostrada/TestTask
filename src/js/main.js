@@ -25,9 +25,41 @@ function initApp() {
   initNavigation();
   initCTAButton();
   initContactForm();
+
+/**
+ * Counter functionality
+ */
+function initCounter() {
+  let count = 0;
+  const counterDisplay = document.getElementById('counter-display');
+  const decrementButton = document.getElementById('decrement-button');
+  const incrementButton = document.getElementById('increment-button');
+  const increment20Button = document.getElementById('increment-20-button');
+
+  function updateDisplay() {
+    counterDisplay.textContent = count;
+  }
+
+  decrementButton.addEventListener('click', () => {
+    count--;
+    updateDisplay();
+  });
+
+  incrementButton.addEventListener('click', () => {
+    count++;
+    updateDisplay();
+  });
+
+  increment20Button.addEventListener('click', () => {
+    count += 20;
+    updateDisplay();
+  });
+
+  updateDisplay(); // Initial display update
+}
+
   initCounter();
   initScrollBehavior();
-  initCounter();
 }
 
 
@@ -180,53 +212,8 @@ function showNotification(message, type = 'info') {
 /**
  * Initialize scroll behavior
  */
-function initScrollBehavior() {
-  // Add scroll event listener with throttle
-  let ticking = false;
 
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        handleScroll();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-}
 
-/**
- * Counter functionality
- */
-function initCounter() {
-  const counterDisplay = document.getElementById('counter-display');
-  const decrementButton = document.getElementById('decrement-button');
-  const incrementButton = document.getElementById('increment-button');
-  const increment20Button = document.getElementById('increment-20-button');
-
-  let count = 0;
-
-  function updateCounter() {
-    counterDisplay.textContent = count;
-  }
-
-  decrementButton.addEventListener('click', () => {
-    count -= 1;
-    updateCounter();
-  });
-
-  incrementButton.addEventListener('click', () => {
-    count += 1;
-    updateCounter();
-  });
-
-  increment20Button.addEventListener('click', () => {
-    count += 20;
-    updateCounter();
-  });
-
-  updateCounter(); // Initialize display
-}
 function initScrollBehavior() {
   // Add scroll event listener with throttle
   let ticking = false;
