@@ -60,23 +60,47 @@ body {
 }
 
 /* Hero Section */
-.hero {
+.counter-section {
   text-align: center;
   padding: var(--spacing-3xl) 0;
+  background-color: var(--color-background-light); /* Assuming this variable exists or needs to be added to variables.css */
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-2xl);
 }
 
-.hero-title {
-  font-size: var(--font-size-5xl);
+.counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.counter-display {
+  font-size: var(--font-size-6xl); /* Assuming this variable exists or needs to be added to variables.css */
   font-weight: var(--font-weight-bold);
-  color: var(--color-gray-900);
-  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
 }
 
-.hero-subtitle {
-  font-size: var(--font-size-xl);
-  color: var(--color-gray-600);
-  margin-bottom: var(--spacing-xl);
+.counter-controls {
+  display: flex;
+  gap: var(--spacing-md);
 }
+
+.btn-secondary {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-700);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-gray-300);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
 
 /* Buttons */
 .btn {

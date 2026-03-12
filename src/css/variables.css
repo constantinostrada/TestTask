@@ -39,6 +39,10 @@
   --font-size-3xl: 1.875rem;
   --font-size-4xl: 2.25rem;
   --font-size-5xl: 3rem;
+  --font-size-6xl: 4.209rem;
+
+  /* Background Colors */
+  --color-background-light: var(--color-gray-100);
 
   /* Font Weights */
   --font-weight-normal: 400;
