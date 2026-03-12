@@ -23,9 +23,9 @@ function initApp() {
 
   // Initialize components
   initNavigation();
-  initCTAButton();
   initContactForm();
   initScrollBehavior();
+  initCounter();
 }
 
 /**
@@ -50,24 +50,31 @@ function initNavigation() {
   });
 }
 
-/**
- * CTA Button functionality
- */
-function initCTAButton() {
-  const ctaButton = document.getElementById('cta-button');
 
-  if (ctaButton) {
-    ctaButton.addEventListener('click', () => {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }
-    });
+/**
+ * Counter functionality
+ */
+function initCounter() {
+  let count = 0;
+  const counterDisplay = document.getElementById('counter-display');
+  const incrementBtn = document.getElementById('increment-btn');
+  const decrementBtn = document.getElementById('decrement-btn');
+
+  function updateDisplay() {
+    counterDisplay.textContent = count;
   }
+
+  incrementBtn.addEventListener('click', () => {
+    count++;
+    updateDisplay();
+  });
+
+  decrementBtn.addEventListener('click', () => {
+    count--;
+    updateDisplay();
+  });
 }
+
 
 /**
  * Contact form handling
