@@ -105,6 +105,67 @@ body {
   transform: translateY(0);
 }
 
+.counter-section {
+  text-align: center;
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--color-gray-100);
+}
+
+.counter-display {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.counter-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.btn-secondary {
+  background-color: var(--color-gray-300);
+  color: var(--color-gray-800);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-gray-400);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.counter-section {
+  text-align: center;
+  padding: 4rem 0;
+  background-color: var(--color-background-alt);
+}
+
+.counter-display {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.counter-controls button {
+  margin: 0 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.5rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.counter-controls button:hover {
+  opacity: 0.9;
+}
+
 /* Section Title */
 .section-title {
   font-size: var(--font-size-4xl);
