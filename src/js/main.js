@@ -199,8 +199,7 @@ function initCounter() {
     updateCounter();
   });
 
-
-  incrementFiveBtn.addEventListener('click', () => { // New button event listener
+  incrementFiveBtn.addEventListener('click', () => {
     count += 5;
     updateCounter();
   });
