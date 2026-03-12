@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * Initialize the application
  */
+let counter = 0;
+
 function initApp() {
   console.log('Application initialized');
 
@@ -26,6 +28,35 @@ function initApp() {
   initCTAButton();
   initContactForm();
   initScrollBehavior();
+  initCounter();
+}
+
+function initCounter() {
+  const counterDisplay = document.getElementById('counter-display');
+  const incrementButton = document.getElementById('increment-button');
+  const decrementButton = document.getElementById('decrement-button');
+  const multiplyButton = document.getElementById('multiply-button');
+
+  function updateCounterDisplay() {
+    counterDisplay.textContent = counter;
+  }
+
+  incrementButton.addEventListener('click', () => {
+    counter++;
+    updateCounterDisplay();
+  });
+
+  decrementButton.addEventListener('click', () => {
+    counter--;
+    updateCounterDisplay();
+  });
+
+  multiplyButton.addEventListener('click', () => {
+    counter *= 10;
+    updateCounterDisplay();
+  });
+
+  updateCounterDisplay();
 }
 
 /**
