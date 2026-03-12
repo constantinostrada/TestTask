@@ -226,6 +226,53 @@ function initScrollBehavior() {
 }
 
 /**
+ * Counter functionality
+ */
+function initCounter() {
+  const counterDisplay = document.getElementById('counter-display');
+  const decrementButton = document.getElementById('decrement-button');
+  const incrementButton = document.getElementById('increment-button');
+  const increment20Button = document.getElementById('increment-20-button');
+
+  let count = 0;
+
+  function updateCounter() {
+    counterDisplay.textContent = count;
+  }
+
+  decrementButton.addEventListener('click', () => {
+    count -= 1;
+    updateCounter();
+  });
+
+  incrementButton.addEventListener('click', () => {
+    count += 1;
+    updateCounter();
+  });
+
+  increment20Button.addEventListener('click', () => {
+    count += 20;
+    updateCounter();
+  });
+
+  updateCounter(); // Initialize display
+}
+function initScrollBehavior() {
+  // Add scroll event listener with throttle
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
+
+/**
  * Handle scroll events
  */
 function handleScroll() {
