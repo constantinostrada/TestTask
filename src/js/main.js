@@ -25,7 +25,43 @@ function initApp() {
   initNavigation();
   initCTAButton();
   initContactForm();
+  initCounter();
   initScrollBehavior();
+}
+
+/**
+ * Counter functionality
+ */
+function initCounter() {
+  const countElement = document.getElementById('count');
+  const decrementButton = document.getElementById('decrement-button');
+  const incrementButton = document.getElementById('increment-button');
+  const incrementBy3Button = document.getElementById('increment-by-3-button');
+
+  let count = 0;
+
+  function updateCount(newCount) {
+    count = newCount;
+    countElement.textContent = count;
+  }
+
+  if (decrementButton) {
+    decrementButton.addEventListener('click', () => {
+      updateCount(count - 1);
+    });
+  }
+
+  if (incrementButton) {
+    incrementButton.addEventListener('click', () => {
+      updateCount(count + 1);
+    });
+  }
+
+  if (incrementBy3Button) {
+    incrementBy3Button.addEventListener('click', () => {
+      updateCount(count + 3);
+    });
+  }
 }
 
 /**
