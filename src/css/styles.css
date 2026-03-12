@@ -157,6 +157,33 @@ body {
   line-height: 1.6;
 }
 
+/* Counter Section */
+
+
+/* Counter Section */
+.counter-section {
+  text-align: center;
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--color-gray-100);
+}
+
+.counter-display {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.counter-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.counter-controls .btn {
+  min-width: 100px;
+}
+
 /* Contact Section */
 .contact {
   padding: var(--spacing-3xl) 0;
