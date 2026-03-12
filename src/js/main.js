@@ -19,13 +19,43 @@ document.addEventListener('DOMContentLoaded', () => {
  * Initialize the application
  */
 function initApp() {
-  console.log('Application initialized');
+let counter = 0;
+const counterDisplay = document.getElementById('counter-display');
+const incrementButton = document.getElementById('increment-button');
+const decrementButton = document.getElementById('decrement-button');
+const incrementThirteenButton = document.getElementById('increment-thirteen-button');
+
+function updateCounterDisplay() {
+  counterDisplay.textContent = counter;
+}
+
+function initCounter() {
+  if (incrementButton && decrementButton && counterDisplay && incrementThirteenButton) {
+    incrementButton.addEventListener('click', () => {
+      counter++;
+      updateCounterDisplay();
+    });
+
+    decrementButton.addEventListener('click', () => {
+      counter--;
+      updateCounterDisplay();
+    });
+
+    incrementThirteenButton.addEventListener('click', () => {
+      counter += 13;
+      updateCounterDisplay();
+    });
+
+    updateCounterDisplay();
+  }
+}
 
   // Initialize components
   initNavigation();
   initCTAButton();
   initContactForm();
   initScrollBehavior();
+  initCounter();
 }
 
 /**
