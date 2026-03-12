@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * Initialize the application
  */
-let counter = 0;
-
 function initApp() {
   console.log('Application initialized');
 
@@ -31,36 +29,47 @@ function initApp() {
   initCounter();
 }
 
+/**
+ * Initialize counter functionality
+ */
 function initCounter() {
   const counterDisplay = document.getElementById('counter-display');
   const incrementBtn = document.getElementById('increment-btn');
   const decrementBtn = document.getElementById('decrement-btn');
   const divideBy3Btn = document.getElementById('divide-by-3-btn');
+  const resetBtn = document.getElementById('reset-btn');
 
-  function updateCounterDisplay() {
-    counterDisplay.textContent = counter;
+  let count = 0;
+
+  function updateDisplay() {
+    counterDisplay.textContent = count;
   }
 
   incrementBtn.addEventListener('click', () => {
-    counter++;
-    updateCounterDisplay();
+    count++;
+    updateDisplay();
   });
 
   decrementBtn.addEventListener('click', () => {
-    counter--;
-    updateCounterDisplay();
+    count--;
+    updateDisplay();
   });
 
   divideBy3Btn.addEventListener('click', () => {
-    if (counter === 0) {
-      showNotification('Cannot divide zero by 3.', 'error');
+    if (count !== 0) {
+      count = Math.floor(count / 3);
+      updateDisplay();
     } else {
-      counter = Math.floor(counter / 3);
-      updateCounterDisplay();
+      showNotification('Cannot divide zero by 3.', 'info');
     }
   });
 
-  updateCounterDisplay();
+  resetBtn.addEventListener('click', () => {
+    count = 0;
+    updateDisplay();
+  });
+
+  updateDisplay(); // Initial display update
 }
 
 /**
