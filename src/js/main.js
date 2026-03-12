@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * Initialize the application
  */
+let counter = 0;
+
 function initApp() {
   console.log('Application initialized');
 
@@ -26,6 +28,39 @@ function initApp() {
   initCTAButton();
   initContactForm();
   initScrollBehavior();
+  initCounter();
+}
+
+function initCounter() {
+  const counterDisplay = document.getElementById('counter-display');
+  const incrementBtn = document.getElementById('increment-btn');
+  const decrementBtn = document.getElementById('decrement-btn');
+  const divideBy3Btn = document.getElementById('divide-by-3-btn');
+
+  function updateCounterDisplay() {
+    counterDisplay.textContent = counter;
+  }
+
+  incrementBtn.addEventListener('click', () => {
+    counter++;
+    updateCounterDisplay();
+  });
+
+  decrementBtn.addEventListener('click', () => {
+    counter--;
+    updateCounterDisplay();
+  });
+
+  divideBy3Btn.addEventListener('click', () => {
+    if (counter === 0) {
+      showNotification('Cannot divide zero by 3.', 'error');
+    } else {
+      counter = Math.floor(counter / 3);
+      updateCounterDisplay();
+    }
+  });
+
+  updateCounterDisplay();
 }
 
 /**
