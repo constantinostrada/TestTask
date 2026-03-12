@@ -1,0 +1,36 @@
+{
+  "name": "testtask",
+  "version": "1.0.0",
+  "description": "A production-ready HTML, CSS, and JavaScript project",
+  "main": "src/js/main.js",
+  "scripts": {
+    "start": "npx live-server src --port=3000",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "npx postcss src/css/styles.css -o dist/css/styles.min.css --use cssnano",
+    "build:js": "npx terser src/js/main.js -o dist/js/main.min.js -c -m",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "npx eslint src/js/**/*.js",
+    "lint:css": "npx stylelint src/css/**/*.css",
+    "format": "npx prettier --write \"src/**/*.{html,css,js}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "frontend"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cssnano": "^6.0.1",
+    "eslint": "^8.50.0",
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "prettier": "^3.0.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "terser": "^5.22.0"
+  }
+}
