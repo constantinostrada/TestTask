@@ -26,6 +26,23 @@ function initApp() {
   initCTAButton();
   initContactForm();
   initScrollBehavior();
+  initCounter();
+}
+
+/**
+ * Counter functionality
+ */
+function initCounter() {
+  let count = 0;
+  const counterDisplay = document.getElementById('counter-display');
+  const add100Button = document.getElementById('add-100-button');
+
+  if (counterDisplay && add100Button) {
+    add100Button.addEventListener('click', () => {
+      count += 100;
+      counterDisplay.textContent = count;
+    });
+  }
 }
 
 /**
