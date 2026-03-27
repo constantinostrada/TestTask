@@ -26,6 +26,7 @@ function initApp() {
   initCTAButton();
   initContactForm();
   initScrollBehavior();
+  initCounter();
 }
 
 /**
@@ -203,6 +204,45 @@ function handleScroll() {
   } else {
     header.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
   }
+}
+
+/**
+ * Counter functionality
+ */
+function initCounter() {
+  const counterDisplay = document.getElementById('counter-display');
+  const incrementBtn = document.getElementById('increment-button');
+  const decrementBtn = document.getElementById('decrement-button');
+  const decrement15000Btn = document.getElementById('decrement-15000-button');
+
+  let count = 0;
+
+  function updateCounter() {
+    counterDisplay.textContent = count;
+  }
+
+  if (incrementBtn) {
+    incrementBtn.addEventListener('click', () => {
+      count++;
+      updateCounter();
+    });
+  }
+
+  if (decrementBtn) {
+    decrementBtn.addEventListener('click', () => {
+      count--;
+      updateCounter();
+    });
+  }
+
+  if (decrement15000Btn) {
+    decrement15000Btn.addEventListener('click', () => {
+      count -= 15000;
+      updateCounter();
+    });
+  }
+
+  updateCounter(); // Initial display
 }
 
 // Export functions for use in other modules (if using modules)
